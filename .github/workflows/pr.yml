@@ -1,0 +1,21 @@
+name: Test Library
+
+on:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+      - name: Set up node 
+        uses: actions/setup-node@v3
+      - name: Install NPM dependencies
+        run: npm install
+      - name: Run tests 
+        run: npm run test
+      - name: Clean up files
+        run: npm run clean-up
+      - name: Attempt dry run build of package
+        run: npm pack --dry-run
