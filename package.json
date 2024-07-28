@@ -50,5 +50,12 @@
     "eslint-plugin-import": "^2.28.1",
     "vite-plugin-dts": "^3.5.3"
   },
-  "repository": "github:tcper/indexeddb-image-cache"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tcper/indexeddb-image-cache.git"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry":"https://registry.npmjs.org/"
+  }
 }
