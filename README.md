@@ -1,5 +1,9 @@
 # indexeddb-image-cache
 Oh yeah, we have Image Cache uses IndexedDB!
+Pros: 
+* No localStorage 5Mb size limit
+* Keep the cache as long as you want
+* Better for some expensive action cache (download/alogrithm calculated)
 
 ## Usage
 
@@ -7,13 +11,17 @@ Oh yeah, we have Image Cache uses IndexedDB!
 npm i indexeddb-image-cache
 ```
 
-```
+```javascript
 import ImageCache from 'indexeddb-image-cache'
 
 const BASE64 = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII';
-  const cache = new ImageCache({ version: 1 });
-  await cache.init();
-  await cache.putImage('trophy', BASE64);
+const cache = new ImageCache({ version: 1 });
+await cache.init();
+await cache.putImage('trophy', BASE64);
+// somewhere else
+// it will return string by URL.createObjectURL()
+// get blob easily by: let blob = await fetch(url).then(r => r.blob());
+const image = await cache.getImage('trophy')
 ```
 
 * More usage see image-cache.test.ts file
