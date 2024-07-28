@@ -49,6 +49,20 @@ export default class Cache {
     });
   }
 
+  putBlob(key: string, blob: Blob) {
+    return new Promise<void>((resolve, reject) => {
+      if (!this.db) {
+        return reject('DB not initialized. Call the init method');
+      }
+
+      const db = this.db;
+
+      const transaction = db.transaction(['cache'], 'readwrite');
+      transaction.objectStore('cache').put(blob, key);
+      resolve();
+    });
+  }
+
   getImage(key: string): Promise<string | null> {
     return new Promise<string | null>(resolve => {
       const transaction = this.db?.transaction(['cache'], 'readwrite');

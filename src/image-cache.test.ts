@@ -18,6 +18,13 @@ describe('ImageCache', async () => {
     await expect(url).to.not.eq(undefined)
   });
 
+  it('Save Blob', async () => {
+    let blob = await fetch(BASE64).then(r => r.blob());
+    await cache.putBlob('blob', blob);
+    const url = await cache.getImage('blob');
+    await expect(url).to.not.eq(undefined);
+  });
+
   it('Delete Image', async () => {
     await cache.clearImage('trophy');
     const url = await cache.getImage('trophy');

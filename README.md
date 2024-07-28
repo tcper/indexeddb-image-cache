@@ -1,6 +1,7 @@
 # indexeddb-image-cache
 Oh yeah, we have Image Cache uses IndexedDB!
-Pros: 
+
+Pros:
 * No localStorage 5Mb size limit
 * Keep the cache as long as you want
 * Better for some expensive action cache (download/alogrithm calculated)
@@ -18,6 +19,7 @@ const BASE64 = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wS
 const cache = new ImageCache({ version: 1 });
 await cache.init();
 await cache.putImage('trophy', BASE64);
+// await cache.putBlob('blob', blobInstance)
 // somewhere else
 // it will return string by URL.createObjectURL()
 // get blob easily by: let blob = await fetch(url).then(r => r.blob());
