@@ -6,6 +6,14 @@ Pros:
 * Keep the cache as long as you want
 * Better for some expensive action cache (download/alogrithm calculated)
 
+Arguments:
+* Abuse indexedDB
+* Shoude use [CacheStorage](https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage) for caching
+
+Thoughts:
+* Developers grab the wheel
+* Just for image/simple blob caching, [CacheStorage](https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage) only accessed by worker, it's complicated to use
+
 ## Usage
 
 ```
