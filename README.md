@@ -1,4 +1,4 @@
-# indexeddb-image-cache
+# indexeddb-image-cache [![Build](https://github.com/tcper/indexeddb-image-cache/actions/workflows/npm-publish-github-packages.yml/badge.svg)](https://github.com/tcper/indexeddb-image-cache/actions/workflows/npm-publish-github-packages.yml)
 Oh yeah, we have Image Cache uses IndexedDB!
 
 Pros:
